@@ -1,0 +1,33 @@
+1) Phone screen layout
+	The phone screen will be divided into 3 layers as shown
+	###############################
+	#                             #
+	#                             #
+	#        playerDisplay        #
+	#                             #
+	#                             #
+	#                             #
+	###############################
+	#                             #
+	#     displayInstructions     #
+	#                             #
+	###############################
+	#         |         |         #
+	#         |         |         #
+	#         |         |         #
+	#         |         |         #
+	#---------+---------+---------#
+	#         |         |         #
+	#         |  tools  |         #
+	#         |         |         #
+	#         |         |         #
+	#---------+---------+---------#
+	#         |         |         #
+	#         |         |         #
+	#         |         |         #
+	#         |         |         #
+	###############################
+
+2) The initialization of the game is done in ClientGameManager, using the method InitGame()
+	InitGame() then calls the method SetupScene() in ClientBoardManager
+3) ClientBoardManager is in-charge of setting up the board, according to the 3 layers shown. Each method sets up a different area on the board. 
