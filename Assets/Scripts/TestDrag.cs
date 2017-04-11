@@ -31,11 +31,12 @@ public class TestDrag : MonoBehaviour {
 
 			
 			if(!Input.GetMouseButton(0)){
-				if (((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).currentTargetID != -1){
-					performAction(((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).toolID, ((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).currentTargetID, ((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).selectedDirection);
-					if (((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).toolID == ((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).currentTargetID) ((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).rotate = ((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).selectedDirection;
+				if (hit.transform.tag == "tool") {
+					if (((Tool)(hit.transform.gameObject).GetComponent (typeof(Tool))).currentTargetID != -1) {
+						performAction (((Tool)(hit.transform.gameObject).GetComponent (typeof(Tool))).toolID, ((Tool)(hit.transform.gameObject).GetComponent (typeof(Tool))).currentTargetID, ((Tool)(hit.transform.gameObject).GetComponent (typeof(Tool))).selectedDirection);
+					}
+					((Tool)(hit.transform.gameObject).GetComponent (typeof(Tool))).resetPosition ();
 				}
-				((Tool)(hit.transform.gameObject).GetComponent(typeof(Tool))).resetPosition();
 				moving = false;
 				hit = new RaycastHit2D();
 			}
