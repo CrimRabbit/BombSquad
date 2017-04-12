@@ -8,6 +8,7 @@ public class Target : MonoBehaviour {
 	public int targetID;
 	public Sprite normal;
 	public Sprite highlighted;
+	public Sprite cut;
 
 	Target(int targetID, Vector3 position) {
 		this.targetID = targetID;

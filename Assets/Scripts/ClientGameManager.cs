@@ -78,7 +78,7 @@ public class ClientGameManager : MonoBehaviour {
 		}
 
 		score = 0;
-		numTools = 10;
+		numTools = 16;
 		int j;
 		tools = new int[numTools];
 		for (int i = 0; i < numTools; i++) {
