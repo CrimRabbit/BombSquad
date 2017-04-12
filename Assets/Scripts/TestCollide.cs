@@ -42,7 +42,6 @@ public class TestCollide : MonoBehaviour {
             ClientBoardManager bm = gameObject.GetComponent(typeof(ClientBoardManager)) as ClientBoardManager;
             gc.score += 1;
             Destroy(coll.gameObject);//destroy the current gameobject
-            bm.SpawnNew(coll.gameObject.transform.position);// write in game controller to get a new gameobject
         }
         else if(coll.gameObject.name == "3wayscrewdriver(Clone)") //replace with legit obj name
         {//just collide w/, that means user has let up mouse

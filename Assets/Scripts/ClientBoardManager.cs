@@ -31,15 +31,6 @@ public class ClientBoardManager : MonoBehaviour {
 	public GameObject[] arrows;
 
 
-	public void SpawnNew(Vector3 toolpos) {
-		int random = Random.Range(0, tools.Length);
-		GameObject randomtool = allGameTools[tools[random]];
-		Vector3 toolSize = allGameToolSizes[toolSizes[random]];
-		GameObject instance = Instantiate(randomtool, toolpos, Quaternion.identity) as GameObject;
-		instance.gameObject.transform.localScale = toolSize;
-		instance.transform.SetParent(toolHolder);
-	}
-
 	// setup the tools
 	void ToolSetup() {
 		toolHolder = new GameObject("ToolHolder").transform;
