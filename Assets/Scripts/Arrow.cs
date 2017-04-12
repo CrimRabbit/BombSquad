@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour {
-	public int direction; //0 is left, 1 is right
+	public int direction; //-1 is left, 1 is right
 	public Sprite normal;
 	public Sprite highlighted;
 
