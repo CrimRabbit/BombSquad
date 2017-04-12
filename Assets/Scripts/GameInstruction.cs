@@ -2,10 +2,9 @@
 using Random = UnityEngine.Random;
 
 public class GameInstruction {
-	int id;
-	private int tool;
 	private int target;
-	private int targetValue;
+	private int direction;
+	private string name;
 	string displayText;
 
 	public string[,] toolNames = {
@@ -65,30 +64,37 @@ public class GameInstruction {
 		{"Yellow Wire", "Honey Wire", "Lemon Tea Squishy Pipe"},
 	};
 
-	public GameInstruction(int tool, int target, int targetValue) {
-		this.tool = tool;
+	public GameInstruction(int target, int direction, String name) {
 		this.target = target;
-		this.targetValue = targetValue;
+		this.name = name;
+		this.direction = direction;
 		this.displayText = GenerateInstructionText(target);
 	}
 
 	private string GenerateInstructionText(int target) {
-		return action[target, Random.Range(0, 3)] + targetNames[target, Random.Range(0, 3)] + "!";
+		if(target < 10){ //screw or nut
+			if(direction > 0){ //clockwise, tightens
+				return action[target, Random.Range(2,3)] + this.name + "!";
+			}else{ // <= 0 anti-clock, loosen
+				return action[target, Random.Range(0,1)] + this.name + "!";
+			}
+		}
+		return action[target, Random.Range(0, 3)] + this.name + "!";
 	}
 
 	// returns a different error code depending on which parameter is correct
 	// returns 0 if correct, another number otherwise
-	public int CheckInstruction(int tool, int target, int targetValue) {
-		if (this.tool == tool) {
-			if (this.target == target) {
-				if (this.targetValue == targetValue) {
-					return 0;
+	public int CheckInstruction(int target, String name, int direction) {
+		if (this.target == target) {
+			if (String.Equals(this.name,name)) {
+				if(this.direction == direction) {
+					return 1; //correct comparision
 				}
-				return 1;
+				return -1; //correct tool, name, wrong direction
 			}
-			return 2;
+			return -1; // correct tool type, wrong name
 		}
-		return 3;
+		return -1; // wrong tool type
 	}
 
 	// returns the displayText
