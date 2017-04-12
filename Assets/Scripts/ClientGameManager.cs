@@ -123,17 +123,17 @@ public class ClientGameManager : MonoBehaviour {
 	//     5) Check whether the game is over (Win->diffusing bomb/Lose->bomb exploded)
 	//     6) Update playerDisplay for all players (upon sucessful instruction completion || upon failure to complete instruction)
 	//     
-	void Update() {
-		// TODO: complete game loop
-		score++;
-		UpdateProgressBar();
-	}
+	//void Update() {
+	//	// TODO: complete game loop
+	//	score++;
+	//	UpdateProgressBar();
+	//}
 
-	void UpdateProgressBar() {
-		// 19 is the max value
-		float val = (float)(score * 19.0 / 1000);
-		this.greenPart.gameObject.transform.localScale = new Vector3(val, 40, 1);
-	}
+	//void UpdateProgressBar() {
+	//	// 19 is the max value
+	//	float val = (float)(score * 19.0 / 1000);
+	//	this.greenPart.gameObject.transform.localScale = new Vector3(val, 40, 1);
+	//}
 
 	// conveniece function for randomising an array, uses the Fisher Yates Shuffle
 	static void RandomizeArray(int[] arr) {

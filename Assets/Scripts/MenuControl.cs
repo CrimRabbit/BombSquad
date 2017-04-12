@@ -11,25 +11,31 @@ public class MenuControl : MonoBehaviour {
 	}
 	
 	public void JoinLocalGame() {
-		if (hostNameInput.text != "Hostname") {
-			NetworkManager.singleton.networkAddress = hostNameInput.text;
-		}	
+		Debug.Log("joining local game");
+		NetworkManager.singleton.networkAddress = hostNameInput.text;
 		NetworkManager.singleton.StartClient();
 	}
 	
 	void StartMatchMaker() {
 		NetworkManager.singleton.StartMatchMaker();
 	}
-	
-	public UnityEngine.UI.Text hostNameInput;
 
+	public UnityEngine.UI.InputField hostNameInput;
 
-	void Start() {
-		hostNameInput.text = NetworkManager.singleton.networkAddress;
+	void Awake() {
+		//Debug.Log ("Original text: " + hostNameInput.text);
+		Debug.Log ("set ip text: " + Network.player.ipAddress);
+		hostNameInput.text = Network.player.ipAddress;
+		//Debug.Log ("New text: " + hostNameInput.text);
+	}
+
+	public void HowToPlay() {
+		Debug.Log("how to play");
+		SceneManager.LoadScene("HowToPlayScene");
 	}
 
 	public void Credits() {
-		//Debug.Log("Display credits");
+		Debug.Log("Display credits");
 		SceneManager.LoadScene("CreditsScene");
 	}
 }
